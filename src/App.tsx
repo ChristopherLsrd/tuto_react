@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import About from './Pages/About';
 import Home from './Pages/Home';
 import Error from './Pages/Error';
+import { UserContext } from './Components/UserContext';
+import "./App.css"
 
 const App = () => {
+  const [user, setUser] = useState(null)
+
+  const value = useMemo(() => ([user, setUser]), [user, setUser])
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={"/"} element={<Home />} />
-        <Route path={"/about"} element={<About />} />
-        <Route path={"*"} element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+      <UserContext.Provider value={value}>
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/about"} element={<About />} />
+          <Route path={"*"} element={<Error />} />
+
+        </Routes>
+      </UserContext.Provider>
+    </BrowserRouter >
+
   );
 };
 
