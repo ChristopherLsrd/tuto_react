@@ -6,7 +6,6 @@ import { UserContext } from '../Components/UserContext';
 import { logicalExpression } from '@babel/types';
 import { login } from './utils/login';
 import { Button } from 'antd';
-import "antd/dist/antd.css";
 
 
 const Home = () => {
