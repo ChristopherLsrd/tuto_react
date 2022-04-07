@@ -4,7 +4,7 @@ import About from './Pages/About';
 import Home from './Pages/Home';
 import Error from './Pages/Error';
 import { UserContext } from './Components/UserContext';
-import "./App.css"
+
 
 const App = () => {
   const [user, setUser] = useState(null)
